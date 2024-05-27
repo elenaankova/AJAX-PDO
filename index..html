@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<!--    <form action="some.php" method="post">-->
+        <pp>Запись</pp><br>
+        <label>Название записи</label><br>
+        <input type="text" name="title" class="title" placeholder="Введите название записи"><br>
+        <label>Комментарий</label><br>
+        <textarea name="content" class="content" rows="10" cols="20"  placeholder="Введите комментарий"></textarea><br>
+
+        <button type="submit" class="otpravka">Выложить</button><br>
+<!--    </form>-->
+
+    <script>
+        $(document).ready(function (){
+            $('button.otpravka').on('click', function (){
+                var titleValue = $('input.title').val();
+                var contentValue = $('textarea.content').val();
+
+                //отправить каким то образом все данные в some.php
+                $.ajax({
+                    method: "POST",
+                    url: "some.php",
+                    data: { title: titleValue, content: contentValue }
+                })
+
+                $('input.title').val('');
+                $('textarea.content').val('');
+            })
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
